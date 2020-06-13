@@ -1,0 +1,29 @@
+{
+    "destination": [{
+            "z": "Wroclaw",
+            "do": "Frankfurt am Main",
+            "wylot": "01.05.2020",
+            "cena": "200 Eur",
+            "samolot": "bombardierCRU100",
+            "miejsca": 64
+
+        },
+        {
+            "z": "Wroclaw",
+            "do": "Warsaw",
+            "wylot": "01.05.2020",
+            "cena": "400 Eur",
+            "samolot": "b737",
+            "miejsca": 48
+        },
+        {
+            "z": "Frankfurt am Main",
+            "do": "New York",
+            "wylot": "01.05.2020",
+            "cena": "400 Eur",
+            "samolot": "b737",
+            "miejsca": 128
+        }
+
+    ]
+}
