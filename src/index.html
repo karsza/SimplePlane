@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy a first-class ticket online</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo">~ AIR ADVENTURE ~</div>
+        <button class="open-button" id="login-button">Zaloguj</button>
+    </header>
+
+    <div id="sekundy" class="dissapear">0:30</div>
+
+    <div class="form-popup" id="myLoginForm">
+        <form class="form-container">
+            <div class="form-header">
+                <h2>Zaloguj się</h2>
+            </div>
+
+            <input type="text" placeholder="Enter login" id="loginName" required>
+            <input type="password" placeholder="Enter Password" id="psw" required>
+
+            <div class="form-footer">
+                <button type="button" id="submit-button" class="btn">Login</button>
+
+                <button type="button" class="btn-cancel" id="close">Close</button>
+            </div>
+
+        </form>
+    </div>
+    <!-- <img src="./pics/b737.svg" alt="" class="dissapear"> -->
+    <div class="container">
+        <ul class="form-1">
+            <li>
+                <label>Skąd</label>
+                <select name="from" id="from" class="field-select">
+                <option value="Warszawy">Warszawa</option>
+            </select>
+            </li>
+
+            <li>
+                <label>Dokąd</label>
+                <select name="destination" id="destination" class="field-select">
+                 <option value="Wroclawia">Wroclaw</option>
+                <option value="Barcelony">Barcona</option>
+                <option value="Tokio">Tokio</option>
+            </select>
+            </li>
+
+            <li>
+                <label for="data wylotu">Data wylotu</label>
+                <input type="date" max="2021-05-18" id="data">
+            </li>
+
+            <li>
+                <label>Liczba pasażerow</label>
+                <select name="liczba" id="people" class="field-select">
+                 <option value="1">1 pasażer</option>
+                <option value="2">2 pasażerów</option>
+                <option value="3">3 pasażerów</option>
+                <option value="4">4 pasażerów</option>
+                <option value="5">5 pasażerów</option>
+                <option value="6">6 pasażerów</option>
+                <option value="7">7 pasażerów</option>
+                <option value="8">8 pasażerów</option>
+                <option value="9">9 pasażerów</option>
+            </select>
+            </li>
+            <li>
+                <input type="button" id="search-button" value="Wyszukaj" />
+            </li>
+        </ul>
+    </div>
+    <div class="form-popup" id="myFormSummary">
+        <form class="form-container1">
+            <div class="form-header">
+                <h2>Wybrales lot:</h2>
+            </div>
+
+            <div id="fromChosen">Z Warsza</div>
+            <div id="WhereTo">Dokad</div>
+            <div id="noPpl">Liczba osob: </div>
+            <div id="calculatedPrice"> </div>
+            <div id="total"> CENA</div>
+
+
+            <div class="form-footer">
+                <button type="button" id="chooseSeat-button" class="btn">Wybor miejsca</button>
+                <button type="button" class="btn-cancel" id="closeSummary">Anuluj</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="form-popup" id="chooseSeats">
+        <form class="form-container2">
+            <div class="form-header">
+                <h2>Wybierz miejsca:</h2>
+            </div>
+            <div class="appear" id="intercontinentalPlane">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
@@ -15,7 +119,7 @@
    version="1.1"
    id="svg1416"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="Simple plane.svg">
+   sodipodi:docname="b737.svg">
   <defs
      id="defs1410" />
   <sodipodi:namedview
@@ -26,10 +130,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="202.03936"
+     inkscape:cx="204.18222"
      inkscape:cy="561.25984"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3098"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1012"
@@ -57,7 +161,7 @@
        inkscape:label="">
       <g
          transform="matrix(1.415517,0,0,1.00469,-47.497498,-1.4711014)"
-         id="plane"
+         id="boeing737"
          inkscape:label="">
         <g
            id="797"
@@ -1380,3 +1484,24 @@
     </g>
   </g>
 </svg>
+
+            </div>
+
+
+            <div class="form-footer">
+                <button type="button" id="confitmSeat-button" class="btn">Potwierdz zakup</button>
+                <button type="button" class="btn-cancel" id="closeSeats">Anuluj</button>
+            </div>
+
+        </form>
+    </div>
+    <footer>
+        <div class="copy">&copy; Copyright Karolina</div>
+    </footer>
+
+    <a href="./kontakt.html"></a>
+    <!-- <script src="bundle.js"></script> -->
+</body>
+
+
+</html>
