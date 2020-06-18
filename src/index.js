@@ -1,9 +1,6 @@
 import style from "./css/index.scss"
 import Icon from "./assets/img/proba.png"
 
-
-
-
 document.getElementById("login-button").addEventListener("click", openLoginForm);
 document.getElementById("close").addEventListener("click", closeLoginForm);
 
@@ -96,11 +93,42 @@ console.log(selectedNoOfPpl);
 var choose = document.getElementById("chooseSeat-button");
 
 choose.addEventListener("click", function() {
-    openChooseSeatsForm();
-})
-const seatsArray = ["_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", "_20", "_21", "_22", "_23", "_24", "_25", "_26", "_27", "_28", "_29", "_31", "_32"];
+        openChooseSeatsForm();
+    })
+    // const seatsArray = ["_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", "_20", "_21", "_22", "_23", "_24", "_25", "_26", "_27", "_28", "_29", "_31", "_32"];
 
-for (var i = 0; i < seatsArray.length; i++) {
+// for (var i = 0; i < seatsArray.length; i++) {
+//     // console.log(seatsArray[i]);
+
+//     document.getElementById(seatsArray[i]).addEventListener("click", function() {
+
+//         if (document.getElementById(this.id).getAttribute("class") == "occupied") {
+//             document.getElementById(this.id).removeAttribute("style");
+//             document.getElementById(this.id).setAttribute("class", "free");
+//             selectedNoOfPpl = selectedNoOfPpl + 1;
+
+
+//         } else {
+//             document.getElementById(this.id).removeAttribute("style");
+//             document.getElementById(this.id).setAttribute("class", "occupied");
+//             selectedNoOfPpl = selectedNoOfPpl - 1;
+//             console.log(selectedNoOfPpl);
+//             if (selectedNoOfPpl == 0) {
+//                 alert("juz wiecej nie wybnieraj")
+//             }
+//         }
+//     });
+// }
+const buttonArray = document.getElementsByTagName("rect");
+// console.log("query", typeof buttonArray);
+
+/// step2 - nodelist to array
+var seatsArray = Array.from(buttonArray);
+// console.log(myArray);
+// step3 - add ID
+for (let i = 0; i < seatsArray.length; i++) {
+    seatsArray[i].setAttribute("id", `_${i + 1}`);
+    console.log(seatsArray[i]);
     // console.log(seatsArray[i]);
 
     document.getElementById(seatsArray[i]).addEventListener("click", function() {
@@ -117,22 +145,11 @@ for (var i = 0; i < seatsArray.length; i++) {
             selectedNoOfPpl = selectedNoOfPpl - 1;
             console.log(selectedNoOfPpl);
             if (selectedNoOfPpl == 0) {
-                alert("juz wiecej nie wybnieraj")
+                alert("jeszcze tylko 1 i koniec wybierania")
             }
         }
     });
 }
+// for (var j = 0; j < seatsArray.length; j++) {
 
-// usunac jesli nie bedzie dzialalo
-// function clearSeats() {
-//     const seatsArray = ["_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", "_20", "_21", "_22", "_23", "_24", "_25", "_26", "_27", "_28", "_29", "_31", "_32"];
-
-//     const seatsToBeCleared = seatsArray;
-//     console.log(seatsArray);
-//     for (var i = 0; i < seatsToBeCleared.length; i++) {
-//         var id = document.getElementById(seatsToBeCleared[i]);
-//         console.log(id);
-//         document.getElementById(this.id).removeAttribute("style");
-//         document.getElementById(this.id).setAttribute("class", "free");
-//     }
 // }
