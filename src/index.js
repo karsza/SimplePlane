@@ -30,8 +30,17 @@ document.getElementById("closeSeats").addEventListener("click", closeChooseSeats
 function closeChooseSeatsForm() {
     document.getElementById("chooseSeats").style.display = "none";
     // clearSeats();
-
 }
+
+function openLastSummaryForm() {
+    document.getElementById("ticketSummary").style.display = "block";
+}
+document.getElementById("closeticketSummary").addEventListener("click", closeLastSummaryForm);
+
+function closeLastSummaryForm() {
+    document.getElementById("ticketSummary").style.display = "none";
+}
+
 let myJson = require("./login.json");
 
 var submitButton = document.getElementById("submit-button");
@@ -70,86 +79,98 @@ function countDown() {
         }
     }, 1000);
 }
+
 // ------------wyszukaj
 var search = document.getElementById("search-button");
 
 var selectedNoOfPpl = 0;
+var typeOfPlane = 0;
+
 
 search.addEventListener("click", function() {
-        openFirstSummaryForm();
-        var selectedFrom = document.getElementById("from").value
-        var selectedDest = document.getElementById("destination").value;
-        selectedNoOfPpl = document.getElementById("people").value;
+    openFirstSummaryForm();
+    var selectedFrom = document.getElementById("from").value
+    var selectedDest = document.getElementById("destination").value;
+    selectedNoOfPpl = document.getElementById("people").value;
 
-        document.getElementById("fromChosen").innerHTML = "Z " + selectedFrom;
-        document.getElementById("WhereTo").innerHTML = "Do " + selectedDest;
-        document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
-        document.getElementById("total").innerHTML = "CENA jak napisze funcje :)";
-        console.log(selectedNoOfPpl);
-    })
-    // let flightData = document.getElementById("wyszukaj")
-console.log(selectedNoOfPpl);
+
+    document.getElementById("fromChosen").innerHTML = "Z " + selectedFrom;
+    document.getElementById("WhereTo").innerHTML = "Do " + selectedDest;
+    document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
+    document.getElementById("total").innerHTML = "CENA jak napisze funcje :)";
+
+
+})
 
 var choose = document.getElementById("chooseSeat-button");
 
 choose.addEventListener("click", function() {
+
+
+    var selectedDest = document.getElementById("destination").value;
+    if (selectedDest.localeCompare("Wroclawia") == 0) {
+        typeOfPlane = "cityPlane";
+        console.log(typeOfPlane);
+
         openChooseSeatsForm();
-    })
-    // const seatsArray = ["_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", "_20", "_21", "_22", "_23", "_24", "_25", "_26", "_27", "_28", "_29", "_31", "_32"];
-
-// for (var i = 0; i < seatsArray.length; i++) {
-//     // console.log(seatsArray[i]);
-
-//     document.getElementById(seatsArray[i]).addEventListener("click", function() {
-
-//         if (document.getElementById(this.id).getAttribute("class") == "occupied") {
-//             document.getElementById(this.id).removeAttribute("style");
-//             document.getElementById(this.id).setAttribute("class", "free");
-//             selectedNoOfPpl = selectedNoOfPpl + 1;
-
-
-//         } else {
-//             document.getElementById(this.id).removeAttribute("style");
-//             document.getElementById(this.id).setAttribute("class", "occupied");
-//             selectedNoOfPpl = selectedNoOfPpl - 1;
-//             console.log(selectedNoOfPpl);
-//             if (selectedNoOfPpl == 0) {
-//                 alert("juz wiecej nie wybnieraj")
-//             }
-//         }
-//     });
-// }
-const buttonArray = document.getElementsByTagName("rect");
-// console.log("query", typeof buttonArray);
-
-/// step2 - nodelist to array
-var seatsArray = Array.from(buttonArray);
-// console.log(myArray);
-// step3 - add ID
-for (let i = 0; i < seatsArray.length; i++) {
-    seatsArray[i].setAttribute("id", `_${i + 1}`);
-    console.log(seatsArray[i]);
-    // console.log(seatsArray[i]);
-
-    document.getElementById(seatsArray[i]).addEventListener("click", function() {
-
-        if (document.getElementById(this.id).getAttribute("class") == "occupied") {
-            document.getElementById(this.id).removeAttribute("style");
-            document.getElementById(this.id).setAttribute("class", "free");
-            selectedNoOfPpl = selectedNoOfPpl + 1;
-
-
-        } else {
-            document.getElementById(this.id).removeAttribute("style");
-            document.getElementById(this.id).setAttribute("class", "occupied");
-            selectedNoOfPpl = selectedNoOfPpl - 1;
-            console.log(selectedNoOfPpl);
-            if (selectedNoOfPpl == 0) {
-                alert("jeszcze tylko 1 i koniec wybierania")
-            }
+        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
+            document.getElementById(typeOfPlane).removeAttribute("class");
+            setSeatNo();
         }
-    });
-}
-// for (var j = 0; j < seatsArray.length; j++) {
+    } else if (selectedDest.localeCompare("Barcelony") == 0) {
+        typeOfPlane = "continentalPlane";
+        console.log(typeOfPlane);
 
-// }
+        openChooseSeatsForm();
+        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
+            document.getElementById(typeOfPlane).removeAttribute("class");
+            setSeatNo();
+
+        }
+    }
+    if (selectedDest.localeCompare("Tokio") == 0) {
+        typeOfPlane = "intercontinentalPlane";
+        console.log(typeOfPlane);
+
+        openChooseSeatsForm();
+        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
+            document.getElementById(typeOfPlane).removeAttribute("class");
+            setSeatNo();
+
+        }
+    }
+
+})
+
+function setSeatNo() {
+
+    const buttonArray = document.getElementsByTagName("rect");
+    var seatsArray = Array.from(buttonArray);
+    console.log(buttonArray);
+    for (let i = 1; i < seatsArray.length; i++) {
+        seatsArray[i].setAttribute("id", `_${i + 1}`);
+
+        document.getElementById(seatsArray[i].id).addEventListener("click", function() {
+            console.log(seatsArray[i].id);
+
+            if (document.getElementById(this.id).getAttribute("class") == "occupied") {
+                document.getElementById(this.id).removeAttribute("style");
+                document.getElementById(this.id).setAttribute("class", "free");
+                selectedNoOfPpl = selectedNoOfPpl + 1;
+
+
+            } else {
+                document.getElementById(this.id).removeAttribute("style");
+                document.getElementById(this.id).setAttribute("class", "occupied");
+                selectedNoOfPpl = selectedNoOfPpl - 1;
+                // console.log(selectedNoOfPpl);
+                if (selectedNoOfPpl == 0) {
+                    alert("jeszcze tylko 1 i koniec wybierania")
+                }
+            }
+        });
+    }
+
+}
+
+var lastSummary = document.getElementById("confirmSeat-button").addEventListener("click", openLastSummaryForm);

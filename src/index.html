@@ -72,6 +72,9 @@
             </select>
             </li>
             <li>
+                <input type="checkbox" id="extraLuggage" label for="vehicle1"> Extra bagaz</label><br>
+            </li>
+            <li>
                 <input type="button" id="search-button" value="Wyszukaj" />
             </li>
         </ul>
@@ -101,16 +104,14 @@
             <div class="form-header">
                 <h2>Wybierz miejsca:</h2>
             </div>
-            <div class="appear" id="intercontinentalPlane">
-                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <div class="disappear" id="cityPlane">
                 <svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
                  <g id="airplaneIntercontinental">
                  <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
                  <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
                  <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
                  <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="930" width="241" height="213" style="fill:#267a34" />
+                 <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
                  <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
                  <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" />
                  <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
@@ -130,13 +131,95 @@
                  <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" />
                  <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
                </g>
+               
                </svg>
+            </div>
+
+            <div class="disappear" id="intercontinentalPlane">
+                <svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+                <g id="airplaneIntercontinental">
+                <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
+                <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
+                <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
+                <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
+                <rect x="726" y="1540.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="726" y="1824.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="726" y="2297" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" />
+                <rect x="726" y="2613" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" />
+                <rect x="726" y="2907.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" />
+                <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
+              </g>
+              
+              </svg>
+            </div>
+
+            <div class="disappear" id="continentalPlane">
+                <svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+             <g id="airplaneIntercontinental">
+             <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
+             <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
+             <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
+             <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
+             <rect x="726" y="1540.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="726" y="1824.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="726" y="2297" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" />
+             <rect x="726" y="2613" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" />
+             <rect x="726" y="2907.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" />
+             <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
+           </g>
+           
+           </svg>
             </div>
 
 
             <div class="form-footer">
-                <button type="button" id="confitmSeat-button" class="btn">Potwierdz zakup</button>
+                <button type="button" id="confirmSeat-button" class="btn">Przejdz dalej</button>
                 <button type="button" class="btn-cancel" id="closeSeats">Anuluj</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="form-popup" id="ticketSummary">
+        <form class="form-container1">
+            <div class="form-header">
+                <h2>Podsumawanie zamowienia:</h2>
+            </div>
+
+            <div id="fromTo">Warszawa --></div>
+            <div id="noTickets">Ilosc biletow : </div>
+            <div id="moreLuggage">Dodatkowy bagaz: </div>
+            <div id="totalPrice"> CENA</div>
+
+
+            <div class="form-footer">
+                <button type="button" id="buy-button" class="btn">Kup bilet</button>
+                <button type="button" class="btn-cancel" id="closeticketSummary">Anuluj</button>
             </div>
 
         </form>
