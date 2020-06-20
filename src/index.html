@@ -21,7 +21,6 @@
             <div class="form-header">
                 <h2>Zaloguj się</h2>
             </div>
-
             <input type="text" placeholder="Enter login" id="loginName" required>
             <input type="password" placeholder="Enter Password" id="psw" required>
 
@@ -39,15 +38,15 @@
             <li>
                 <label>Skąd</label>
                 <select name="from" id="from" class="field-select">
-                <option value="Warszawy">Warszawa</option>
+                <option value="Warszawa">Warszawa</option>
             </select>
             </li>
 
             <li>
                 <label>Dokąd</label>
                 <select name="destination" id="destination" class="field-select">
-                 <option value="Wroclawia">Wroclaw</option>
-                <option value="Barcelony">Barcona</option>
+                 <option value="Wroclaw">Wroclaw</option>
+                <option value="Barcelona">Barcona</option>
                 <option value="Tokio">Tokio</option>
             </select>
             </li>
@@ -72,9 +71,6 @@
             </select>
             </li>
             <li>
-                <input type="checkbox" id="extraLuggage" label for="vehicle1"> Extra bagaz</label><br>
-            </li>
-            <li>
                 <input type="button" id="search-button" value="Wyszukaj" />
             </li>
         </ul>
@@ -85,11 +81,10 @@
                 <h2>Wybrales lot:</h2>
             </div>
 
-            <div id="fromChosen">Z Warsza</div>
-            <div id="WhereTo">Dokad</div>
+            <div id="fromTo">Z - Do</div>
             <div id="noPpl">Liczba osob: </div>
             <div id="calculatedPrice"> </div>
-            <div id="total"> CENA</div>
+            <input type="checkbox" id="extraLuggage" label for="vehicle1"> Extra bagaz</label><br>
 
 
             <div class="form-footer">
@@ -110,26 +105,26 @@
                  <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
                  <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
                  <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
+                 <!-- <rect x="1040" y="930" width="241" height="213" style="fill: #267a34" /> -->
+                 <!-- <rect x="1360" y="930" width="241" height="213" style="fill:#267a34" /> -->
                  <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
+                 <!-- <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" /> -->
                  <rect x="726" y="1540.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" />
+                 <!-- <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" /> -->
                  <rect x="726" y="1824.94" width="241" height="213" style="fill:#267a34" />
                  <rect x="726" y="2297" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" />
+                 <!-- <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" /> -->
                  <rect x="726" y="2613" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" />
+                 <!-- <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" /> -->
                  <rect x="726" y="2907.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" />
-                 <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
+                 <!-- <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" /> -->
+                 <!-- <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" /> -->
                </g>
                
                </svg>
@@ -169,29 +164,29 @@
             <div class="disappear" id="continentalPlane">
                 <svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
              <g id="airplaneIntercontinental">
-             <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
-             <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
-             <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
-             <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
-             <rect x="726" y="1540.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="726" y="1824.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="726" y="2297" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" />
-             <rect x="726" y="2613" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" />
-             <rect x="726" y="2907.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" />
-             <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
+               <circle cx="1168.5" cy="846.5" r="541.5" style="fill:#ebebeb" />
+               <rect x="625" y="828" width="1090" height="2679.87" style="fill:#ebebeb" />
+               <rect x="726" y="930" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="930" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="930" width="241" height="213" style="fill:#33267a" />
+               <rect x="726" y="1246" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="1246" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="1246" width="241" height="213" style="fill:#267a34" />
+               <rect x="726" y="1540.94" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="1540.94" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="1540.94" width="241" height="213" style="fill:#267a34" />
+               <rect x="726" y="1824.94" width="241" height="213" style="fill:#267a34" />
+               <rect x="726" y="2297" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="2297" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="2297" width="241" height="213" style="fill:#267a34" />
+               <rect x="726" y="2613" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="2613" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="2613" width="241" height="213" style="fill:#267a34" />
+               <rect x="726" y="2907.94" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="2907.94" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="2907.94" width="241" height="213" style="fill:#267a34" />
+               <!-- <rect x="1040" y="1824.94" width="241" height="213" style="fill:#267a34" /> -->
+               <rect x="1360" y="1824.94" width="241" height="213" style="fill:#267a34" />
            </g>
            
            </svg>
@@ -220,6 +215,18 @@
             <div class="form-footer">
                 <button type="button" id="buy-button" class="btn">Kup bilet</button>
                 <button type="button" class="btn-cancel" id="closeticketSummary">Anuluj</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="form-popup" id="ticketBought">
+        <form class="form-container1">
+            <div class="form-header">
+                <h2>BILET 1 KLASY KUPIONY!</h2>
+            </div>
+
+            <div class="form-footer">
+                <button type="button" class="btn-cancel" id="closeTicketBought">Wyloguj</button>
             </div>
 
         </form>
