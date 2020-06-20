@@ -1,5 +1,11 @@
 import style from "./css/index.scss"
 
+// Warszawa bo sie nie pojawia
+// JSON sprawdzanie lotow cen 
+// oblicznie ceny
+// checkbox uzycie
+// zeby nie mozna bylo wiecej wybrac miejsc niz jest wybranych buletow
+
 document.getElementById("login-button").addEventListener("click", openLoginForm);
 document.getElementById("close").addEventListener("click", closeLoginForm);
 document.getElementById("confirmSeat-button").addEventListener("click", openLastSummaryForm);
@@ -35,6 +41,14 @@ function closeChooseSeatsForm() {
 
 function openLastSummaryForm() {
     document.getElementById("ticketSummary").style.display = "block";
+
+    var selectedFrom = document.getElementById("fromTo").value;
+    var selectedDest = document.getElementById("destination").value;
+
+    selectedNoOfPpl = document.getElementById("people").value;
+
+    document.getElementById("fromTo").innerHTML = selectedFrom + " -->" + selectedDest;
+    document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
 }
 document.getElementById("closeticketSummary").addEventListener("click", closeLastSummaryForm);
 
@@ -68,6 +82,7 @@ submitButton.addEventListener("click", function() {
             var button = document.getElementById("login-button");
             button.innerHTML = "Wyloguj " + myJson.users[i].name;
             closeLoginForm();
+            countDown();
             return true;
         }
     }
@@ -97,17 +112,18 @@ submitButton.addEventListener("click", function() {
 // });
 
 function countDown() {
-    document.getElementById("sekundy").removeClass("dissapear");
-    let i = 30;
+    var sek = document.getElementById("sekundy");
+    sek.removeAttribute("class");
+    let i = 60;
     const time = setInterval(function() {
         i--;
         var z = i % 60;
 
-        document.getElementById("sekundy").innerHTML("Sesja wygasa za :" + z + " " + " sekund");
+        sek.innerHTML = ("Sesja wygasa za :" + z + " " + " sekund");
         if (i <= 0) {
             clearInterval(time);
-            document.getElementById("zaloguj").innerHTML("Zaloguj");
-            document.getElementById("sekundy").innerHTML("Sesja wygasla");
+            sek.innerHTML = ("Sesja wygasla");
+            logOut();
         }
     }, 1000);
 }
@@ -122,14 +138,14 @@ var typeOfPlane = 0;
 search.addEventListener("click", function() {
         var loginButton = document.getElementById("login-button").innerHTML;
         if (loginButton == "Zaloguj") {
-            alert("Wyszukiwanie dostepne po zalogowaniu")
+            alert("Wyszukiwanie dostepne wylacznie po zalogowaniu")
+            openLoginForm();
         } else {
 
             openFirstSummaryForm();
             var selectedFrom = document.getElementById("fromTo").value
             var selectedDest = document.getElementById("destination").value;
             selectedNoOfPpl = document.getElementById("people").value;
-
 
             document.getElementById("fromTo").innerHTML = selectedFrom + " -->" + selectedDest;
             document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
@@ -180,10 +196,10 @@ choose.addEventListener("click", function() {
 function setSeatNo() {
 
     const buttonArray = document.getElementsByTagName("rect");
-    console.log(buttonArray);
+    // console.log(buttonArray);
     var seatsArray = Array.from(buttonArray);
-    console.log(seatsArray);
-    console.log(buttonArray);
+    // console.log(seatsArray);
+    // console.log(buttonArray);
     for (let i = 1; i < seatsArray.length; i++) {
         seatsArray[i].setAttribute("id", `_${i + 1}`);
 
