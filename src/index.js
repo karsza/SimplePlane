@@ -6,6 +6,25 @@ import style from "./css/index.scss"
 // checkbox uzycie
 // zeby nie mozna bylo wiecej wybrac miejsc niz jest wybranych buletow
 
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1;
+var yyyy = today.getFullYear();
+if (dd < 10) {
+    dd = '0' + dd
+}
+if (mm < 10) {
+    mm = '0' + mm
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("data").setAttribute("min", today);
+
+var selectedDate = document.getElementById("data");
+console.log(selectedDate);
+
+
+
 document.getElementById("login-button").addEventListener("click", openLoginForm);
 document.getElementById("close").addEventListener("click", closeLoginForm);
 document.getElementById("confirmSeat-button").addEventListener("click", openLastSummaryForm);
@@ -21,6 +40,7 @@ function closeLoginForm() {
 
 function openFirstSummaryForm() {
     document.getElementById("myFormSummary").style.display = "block";
+
 }
 document.getElementById("closeSummary").addEventListener("click", closeFirstSummaryForm);
 
@@ -40,14 +60,15 @@ function closeChooseSeatsForm() {
 }
 
 function openLastSummaryForm() {
+
     document.getElementById("ticketSummary").style.display = "block";
 
-    var selectedFrom = document.getElementById("fromTo").value;
+    var selectedFrom = document.getElementById("from").value;
     var selectedDest = document.getElementById("destination").value;
 
     selectedNoOfPpl = document.getElementById("people").value;
 
-    document.getElementById("fromTo").innerHTML = selectedFrom + " -->" + selectedDest;
+    document.getElementById("fromTo").innerHTML += selectedFrom + " -->" + selectedDest;
     document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
 }
 document.getElementById("closeticketSummary").addEventListener("click", closeLastSummaryForm);
@@ -66,6 +87,7 @@ function closeticketBoughtForm() {
     logOut();
 
 }
+
 
 let myJson = require("./assets/login.json");
 
@@ -112,7 +134,7 @@ submitButton.addEventListener("click", function() {
 // });
 
 function countDown() {
-    var sek = document.getElementById("sekundy");
+    var sek = document.getElementById("seconds");
     sek.removeAttribute("class");
     let i = 60;
     const time = setInterval(function() {
@@ -143,7 +165,7 @@ search.addEventListener("click", function() {
         } else {
 
             openFirstSummaryForm();
-            var selectedFrom = document.getElementById("fromTo").value
+            var selectedFrom = document.getElementById("from").value
             var selectedDest = document.getElementById("destination").value;
             selectedNoOfPpl = document.getElementById("people").value;
 
@@ -196,10 +218,8 @@ choose.addEventListener("click", function() {
 function setSeatNo() {
 
     const buttonArray = document.getElementsByTagName("rect");
-    // console.log(buttonArray);
     var seatsArray = Array.from(buttonArray);
-    // console.log(seatsArray);
-    // console.log(buttonArray);
+
     for (let i = 1; i < seatsArray.length; i++) {
         seatsArray[i].setAttribute("id", `_${i + 1}`);
 
@@ -216,9 +236,9 @@ function setSeatNo() {
                 document.getElementById(this.id).removeAttribute("style");
                 document.getElementById(this.id).setAttribute("class", "occupied");
                 selectedNoOfPpl = selectedNoOfPpl - 1;
-                // console.log(selectedNoOfPpl);
+
                 if (selectedNoOfPpl == 0) {
-                    alert("przejdz do podsumowania")
+                    alert("przejdz do podsumowania");
                 }
             }
         });
@@ -245,5 +265,13 @@ function logOut() {
     var button = document.getElementById("login-button");
     button.innerHTML = "Wyloguj";
     location.reload();
+}
 
+function extraLuggage() {
+    var additionalBag = document.getElementById("extraLuggage");
+    if (additionalBag.checked == true) {
+        console.log("zaznaczona");
+    } else {
+        console.log("nie zaznaczone");
+    }
 }
