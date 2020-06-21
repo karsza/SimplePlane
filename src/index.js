@@ -1,10 +1,5 @@
 import style from "./css/index.scss"
 
-//uzupelnic ostatni formularz
-// JSON sprawdzanie lotow cen 
-// oblicznie ceny
-
-
 var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth() + 1;
