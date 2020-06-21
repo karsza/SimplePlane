@@ -1,7 +1,7 @@
 {
     "flights": [
-        { "destination": "Wroclaw", "time": "9:00", "price": 500 },
-        { "destination": "barcelona", "time": "19:00", "price": 1500 },
-        { "destination": "Tokio", "time": "11:00", "price": 2500 }
+        { "destination": "Wroclaw", "time": "9:00", "plane": "cityPlane", "price": 500 },
+        { "destination": "Barcelona", "time": "19:00", "plane": "continentalPlane", "price": 1500 },
+        { "destination": "Tokio", "time": "11:00", "plane": "intercontinentalPlane", "price": 2500 }
     ]
 }

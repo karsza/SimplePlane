@@ -11,7 +11,7 @@
 <body>
     <header>
         <div id="logo">~ 1st class Airlines ~</div>
-        <button class="open-button" id="login-button">Zaloguj</button>
+        <button class="btn" id="login-button">Zaloguj</button>
     </header>
 
     <div id="seconds" class="dissapear"></div>
@@ -26,12 +26,12 @@
 
             <div class="form-footer">
                 <button type="button" id="submit-button" class="btn">Login</button>
-
                 <button type="button" class="btn-cancel" id="close">Close</button>
             </div>
 
         </form>
     </div>
+
     <!-- <img src="./pics/b737.svg" alt="" class="dissapear"> -->
     <div class="container">
         <ul class="form-1">
@@ -46,7 +46,7 @@
                 <label>Dokąd</label>
                 <select name="destination" id="destination" class="field-select">
                  <option value="Wroclaw">Wroclaw</option>
-                <option value="Barcelona">Barcona</option>
+                <option value="Barcelona">Barcelona</option>
                 <option value="Tokio">Tokio</option>
             </select>
             </li>
@@ -71,7 +71,7 @@
             </select>
             </li>
             <li>
-                <input type="button" id="search-button" value="Wyszukaj" />
+                <input type="button" class="btn" id="search-button" value="Wyszukaj" />
             </li>
         </ul>
     </div>
@@ -82,7 +82,7 @@
             </div>
             <div id="fromTo">Warszawa --></div>
             <div id="noPpl">Liczba osob: </div>
-            <div id="calculatedPrice"> </div>
+            <div id="initialDate">Data</div>
             <input type="checkbox" id="extraLuggage" label for="v"> Extra bagaz</label><br>
             <div class="form-footer">
                 <button type="button" id="chooseSeat-button" class="btn">Wybor miejsca</button>
@@ -91,10 +91,25 @@
 
         </form>
     </div>
+    <div class="form-popup" id="luggageForm">
+        <form class="form-container">
+            <div class="form-header">
+                <h2>Dla ilu osob dodatkowy bagaz?</h2>
+            </div>
+            <input type="number" placeholder="Wpisz liczbe" id="noExtraLuggage" required>
+
+            <div class="form-footer">
+                <button type="button" id="noOfLuggageSubmit-button" class="btn">Dalej</button>
+
+                <button type="button" class="btn-cancel" id="closeLuggageForm">Close</button>
+            </div>
+
+        </form>
+    </div>
     <div class="form-popup" id="chooseSeats">
         <form class="form-container2">
             <div class="form-header">
-                <h2>Wybierz miejsca:</h2>
+                <div id="time">Miejsca na lot o godzinie:</div>
             </div>
             <div class="disappear" id="cityPlane">
                 <svg width="100%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
@@ -199,16 +214,17 @@
     <div class="form-popup" id="ticketSummary">
         <form class="form-container1">
             <div class="form-header">
-                <h2>Podsumawanie zamowienia:</h2>
+                <h2>Podsumowanie rezerwacji:</h2>
             </div>
 
-            <div id="fromTo">Warszawa --></div>
+            <div id="fromToConfirmed">Warszawa --> </div>
+            <div id="depTime">Godzina odlotu: </div>
             <div id="noTickets">Ilosc biletow : </div>
             <div id="moreLuggage">Dodatkowy bagaz: </div>
-            <div id="totalPrice"> CENA</div>
+            <div id="totalPrice"> CENA w PLN:</div>
 
             <div class="form-footer">
-                <button type="button" id="buy-button" class="btn">Kup bilet</button>
+                <button type="button" id="buy-button" class="btn">Zarezerwuj</button>
                 <button type="button" class="btn-cancel" id="closeticketSummary">Anuluj</button>
             </div>
 
@@ -217,7 +233,7 @@
     <div class="form-popup" id="ticketBought">
         <form class="form-container1">
             <div class="form-header">
-                <h2>BILET 1 KLASY KUPIONY!</h2>
+                <h2>BILET 1 KLASY ZAREZERWOWANY!</h2>
             </div>
 
             <div class="form-footer">

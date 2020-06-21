@@ -1,10 +1,9 @@
 import style from "./css/index.scss"
 
-// Warszawa bo sie nie pojawia
+//uzupelnic ostatni formularz
 // JSON sprawdzanie lotow cen 
 // oblicznie ceny
-// checkbox uzycie
-// zeby nie mozna bylo wiecej wybrac miejsc niz jest wybranych buletow
+
 
 var today = new Date();
 var dd = today.getDate();
@@ -20,15 +19,25 @@ if (mm < 10) {
 today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("data").setAttribute("min", today);
 
-var selectedDate = document.getElementById("data");
-console.log(selectedDate);
 
 
-
+var noOfExtraLuggage = 0;
 document.getElementById("login-button").addEventListener("click", openLoginForm);
 document.getElementById("close").addEventListener("click", closeLoginForm);
 document.getElementById("confirmSeat-button").addEventListener("click", openLastSummaryForm);
 document.getElementById("buy-button").addEventListener("click", openticketBoughtForm);
+document.getElementById("closeLuggageForm").addEventListener("click", closeLuggageForm);
+document.getElementById("noOfLuggageSubmit-button").addEventListener("click", function() {
+    noOfExtraLuggage = document.getElementById("noExtraLuggage").value;
+    if (ifExtraLuggageNotToLarge() == false) {
+        alert("liczba dodatkowego bagazu nie moze przekroczyc liczby rezerwowanych biletow")
+    } else {
+        closeLuggageForm();
+    }
+
+})
+document.getElementById("closeSummary").addEventListener("click", closeFirstSummaryForm);
+
 
 function openLoginForm() {
     document.getElementById("myLoginForm").style.display = "block";
@@ -38,11 +47,18 @@ function closeLoginForm() {
     document.getElementById("myLoginForm").style.display = "none";
 }
 
+function openLuggageForm() {
+    document.getElementById("luggageForm").style.display = "block";
+    luggageNo = document.getElementById("noExtraLuggage").value;
+}
+
+function closeLuggageForm() {
+    document.getElementById("luggageForm").style.display = "none";
+}
+
 function openFirstSummaryForm() {
     document.getElementById("myFormSummary").style.display = "block";
-
 }
-document.getElementById("closeSummary").addEventListener("click", closeFirstSummaryForm);
 
 function closeFirstSummaryForm() {
     document.getElementById("myFormSummary").style.display = "none";
@@ -60,6 +76,13 @@ function closeChooseSeatsForm() {
 }
 
 function openLastSummaryForm() {
+    var luggage = "";
+    if (extraLuggage == true) {
+        luggage = "TAK";
+    } else {
+        luggage = "NIE";
+    }
+
 
     document.getElementById("ticketSummary").style.display = "block";
 
@@ -68,8 +91,14 @@ function openLastSummaryForm() {
 
     selectedNoOfPpl = document.getElementById("people").value;
 
-    document.getElementById("fromTo").innerHTML += selectedFrom + " -->" + selectedDest;
-    document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
+    document.getElementById("fromToConfirmed").innerHTML = selectedFrom + " -->" + selectedDest;
+    document.getElementById("depTime").innerHTML += time;
+    document.getElementById("noTickets").innerHTML += selectedNoOfPpl;
+    document.getElementById("moreLuggage").innerHTML += luggage;
+
+    var summaryPrice = totalPrice();
+    document.getElementById("totalPrice").innerHTML += summaryPrice;
+
 }
 document.getElementById("closeticketSummary").addEventListener("click", closeLastSummaryForm);
 
@@ -87,8 +116,7 @@ function closeticketBoughtForm() {
     logOut();
 
 }
-
-
+// sprawdzenie loginu
 let myJson = require("./assets/login.json");
 
 var submitButton = document.getElementById("submit-button");
@@ -104,15 +132,13 @@ submitButton.addEventListener("click", function() {
             var button = document.getElementById("login-button");
             button.innerHTML = "Wyloguj " + myJson.users[i].name;
             closeLoginForm();
-            countDown();
+            // countDown();
             return true;
         }
     }
     alert("haslo lub login niepoprawne sprobuj ponownie");
 
 });
-// let myJsonFlights = require("./assets/flights.json");
-
 // // var submitButton = document.getElementById("submit-button");
 // // submitButton.addEventListener("click", function() {
 
@@ -133,89 +159,90 @@ submitButton.addEventListener("click", function() {
 
 // });
 
-function countDown() {
-    var sek = document.getElementById("seconds");
-    sek.removeAttribute("class");
-    let i = 60;
-    const time = setInterval(function() {
-        i--;
-        var z = i % 60;
+// function countDown() {
+//     var sek = document.getElementById("seconds");
+//     sek.removeAttribute("class");
+//     let i = 60;
+//     const time = setInterval(function() {
+//         i--;
+//         var z = i % 60;
 
-        sek.innerHTML = ("Sesja wygasa za :" + z + " " + " sekund");
-        if (i <= 0) {
-            clearInterval(time);
-            sek.innerHTML = ("Sesja wygasla");
-            logOut();
-        }
-    }, 1000);
-}
+//         sek.innerHTML = ("Sesja wygasa za :" + z + " " + " sekund");
+//         if (i <= 0) {
+//             clearInterval(time);
+//             sek.innerHTML = ("Sesja wygasla");
+//             logOut();
+//         }
+//     }, 1000);
+// }
 
 // ------------wyszukaj
 var search = document.getElementById("search-button");
 
+
 var selectedNoOfPpl = 0;
 var typeOfPlane = 0;
+var luggageNo = 0;
+var selectedDate = document.getElementById("data").value;
+var time = 0;
 
 
 search.addEventListener("click", function() {
-        var loginButton = document.getElementById("login-button").innerHTML;
-        if (loginButton == "Zaloguj") {
-            alert("Wyszukiwanie dostepne wylacznie po zalogowaniu")
-            openLoginForm();
-        } else {
+    var loginButton = document.getElementById("login-button").innerHTML;
+    if (loginButton == "Zaloguj") {
+        alert("Wyszukiwanie dostepne wylacznie po zalogowaniu")
+        openLoginForm();
+    } else {
 
-            openFirstSummaryForm();
-            var selectedFrom = document.getElementById("from").value
-            var selectedDest = document.getElementById("destination").value;
-            selectedNoOfPpl = document.getElementById("people").value;
+        openFirstSummaryForm();
+        var selectedFrom = document.getElementById("from").value
+        var selectedDest = document.getElementById("destination").value;
+        selectedDate = document.getElementById("data").value;
+        selectedNoOfPpl = document.getElementById("people").value;
 
-            document.getElementById("fromTo").innerHTML = selectedFrom + " -->" + selectedDest;
-            document.getElementById("calculatedPrice").innerHTML = selectedNoOfPpl;
 
-        }
-    })
-    // koniec wyszukiwania
+        document.getElementById("fromTo").innerHTML = selectedFrom + " -->" + selectedDest;
+        document.getElementById("noPpl").innerHTML += selectedNoOfPpl;
+        document.getElementById("initialDate").innerHTML = selectedDate;
+
+    }
+})
 
 var choose = document.getElementById("chooseSeat-button");
+
+let myJsonFlights = require("./assets/flights.json");
+var flightsNo = Object.keys(myJsonFlights.flights).length;
+var ticketPrice = 0;
+
 
 choose.addEventListener("click", function() {
 
     var selectedDest = document.getElementById("destination").value;
-    if (selectedDest.localeCompare("Wroclaw") == 0) {
-        typeOfPlane = "cityPlane";
-        console.log(typeOfPlane);
 
-        openChooseSeatsForm();
-        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
-            document.getElementById(typeOfPlane).removeAttribute("class");
-            setSeatNo();
-        }
-    } else if (selectedDest.localeCompare("Barcelona") == 0) {
-        typeOfPlane = "continentalPlane";
-        console.log(typeOfPlane);
+    for (var i = 0; i < flightsNo; i++) {
+        if ((myJsonFlights.flights[i].destination).localeCompare(selectedDest) == 0) {
+            ticketPrice = myJsonFlights.flights[i].price;
+            typeOfPlane = myJsonFlights.flights[i].plane;
+            time = myJsonFlights.flights[i].time;
 
-        openChooseSeatsForm();
-        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
-            document.getElementById(typeOfPlane).removeAttribute("class");
-            setSeatNo();
+            if ((extraLuggage() == true) && (document.getElementById("noExtraLuggage").value == 0)) {
+                openLuggageForm();
+            } else {
 
-        }
-    }
-    if (selectedDest.localeCompare("Tokio") == 0) {
-        typeOfPlane = "intercontinentalPlane";
-        console.log(typeOfPlane);
+                openChooseSeatsForm();
+                if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
+                    document.getElementById(typeOfPlane).removeAttribute("class");
+                    setSeatNo();
+                }
+            }
+        } else continue;
 
-        openChooseSeatsForm();
-        if (document.getElementById(typeOfPlane).getAttribute("class") == "disappear") {
-            document.getElementById(typeOfPlane).removeAttribute("class");
-            setSeatNo();
-
-        }
     }
 
 })
 
 function setSeatNo() {
+    document.getElementById("time").innerHTML += time;
 
     const buttonArray = document.getElementsByTagName("rect");
     var seatsArray = Array.from(buttonArray);
@@ -224,7 +251,6 @@ function setSeatNo() {
         seatsArray[i].setAttribute("id", `_${i + 1}`);
 
         document.getElementById(seatsArray[i].id).addEventListener("click", function() {
-            console.log(seatsArray[i].id);
 
             if (document.getElementById(this.id).getAttribute("class") == "occupied") {
                 document.getElementById(this.id).removeAttribute("style");
@@ -233,22 +259,23 @@ function setSeatNo() {
 
 
             } else {
-                document.getElementById(this.id).removeAttribute("style");
-                document.getElementById(this.id).setAttribute("class", "occupied");
-                selectedNoOfPpl = selectedNoOfPpl - 1;
+                if ((selectedNoOfPpl > 0) && (document.getElementById(this.id).hasAttribute("style"))) {
+                    document.getElementById(this.id).removeAttribute("style");
+                    document.getElementById(this.id).setAttribute("class", "occupied");
+                    selectedNoOfPpl = selectedNoOfPpl - 1;
+                } else {
+                    alert("nie mozesz zaznaczyc wiecej miejsc niz rezerwowanych biletow");
 
-                if (selectedNoOfPpl == 0) {
-                    alert("przejdz do podsumowania");
                 }
-            }
-        });
-    }
 
+            }
+
+        })
+    }
 }
 
 function clearSeats() {
     const buttonArray = document.getElementsByTagName("rect");
-    console.log(buttonArray);
     var seatsArray = Array.from(buttonArray);
 
 
@@ -269,9 +296,31 @@ function logOut() {
 
 function extraLuggage() {
     var additionalBag = document.getElementById("extraLuggage");
+
     if (additionalBag.checked == true) {
-        console.log("zaznaczona");
+        return true
     } else {
-        console.log("nie zaznaczone");
+        return false;
     }
+}
+
+function ifExtraLuggageNotToLarge() {
+    var no = document.getElementById("noExtraLuggage").value
+    if (no > selectedNoOfPpl) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function totalPrice() {
+    var sum = 0;
+    var extra = 0;
+    if (extraLuggage() == true) {
+        extra = (0.5 * noOfExtraLuggage);
+    } else(extra = 0);
+    sum = (ticketPrice * selectedNoOfPpl) + (ticketPrice * extra);
+    return sum;
+
+
 }

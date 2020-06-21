@@ -4,6 +4,7 @@
         { "login": "aa", "pass": "321", "name": "Adam Adamski", "email": "adamskia@gemail.com" },
         { "login": "bb", "pass": "333", "name": "Bartosz Bartkowski", "email": "bbarta@gemail.com" },
         { "login": "cc", "pass": "320", "name": "Celina Celinska", "email": "cecela@gemail.com" },
-        { "login": "dd", "pass": "121", "name": "Daria Damalia", "email": "dama@gemail.com" }
+        { "login": "dd", "pass": "121", "name": "Daria Damalia", "email": "dama@gemail.com" },
+        { "login": "md", "pass": "wsb", "name": "Marcin", "email": "md@femail.com" }
     ]
 }

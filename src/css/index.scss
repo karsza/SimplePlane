@@ -53,10 +53,12 @@
     }
     
     .open-button {
-        font-size: 14px;
+        background-color: #4B99AD;
+        color: white;
+        font-size: 16px;
         letter-spacing: 1px;
         padding: 7px 10px;
-        min-width: 80px;
+        min-width: 100px;
     }
     
     .btn-close {
@@ -77,7 +79,7 @@
         content: "";
         display: none;
         background: rgba(0, 0, 0, 0.6);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -186,10 +188,9 @@
     textarea,
     select {
         box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         border: 1px solid #BEBEBE;
-        padding: 7px;
+        border-radius: 3px;
+        padding: 4px;
         margin: 0px;
         outline: none;
     }
@@ -204,18 +205,8 @@
     .form-1 input[type=email]:focus,
     .form-1 textarea:focus,
     .form-1 select:focus {
-        -moz-box-shadow: 0 0 8px #88D5E9;
-        -webkit-box-shadow: 0 0 8px #88D5E9;
         box-shadow: 0 0 8px #88D5E9;
         border: 1px solid #88D5E9;
-    }
-    
-    .form-1 .field-divided {
-        width: 49%;
-    }
-    
-    .form-1 .field-long {
-        width: 100%;
     }
     
     .form-1 .field-select {
@@ -273,5 +264,5 @@
     }
     
     .free {
-        fill: #3b8039;
+        fill: #4ce246;
     }
