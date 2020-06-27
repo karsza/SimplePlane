@@ -72,7 +72,7 @@ function closeChooseSeatsForm() {
 
 function openLastSummaryForm() {
     var luggage = "";
-    if (extraLuggage == true) {
+    if (extraLuggage() == true) {
         luggage = "TAK";
     } else {
         luggage = "NIE";
